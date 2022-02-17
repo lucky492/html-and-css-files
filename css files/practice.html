@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbar li {
+            display: inline-block;
+        }
+
+        .navbar {
+            display: inline-block;
+            background-color: black;
+            color: white;
+            height: 50px;
+            width: 100%;
+
+            /* Both navbar and helper3 below have position sticky.but helper3 overlap navbar as its z-index value is more than navbar.By default navbar's z-index is auto.auto means it will fit inside it's parent element.Here to make navbar overlap helper3 we will use its z-index property.*/
+            position: sticky;
+            top: 8px;
+            z-index: 1;
+        }
+
+        .helper3 {
+            display: inline-block;
+            width: 30vw;
+            height: 700px;
+            border: 2px solid red;
+            position: sticky;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li>home</li>
+            <li>about</li>
+            <li>contact</li>
+        </ul>
+    </nav>
+
+    <div class="helper3">This is also to help to demonstarate z-index property.
+        <p>Lorem ipsum dolor sit amet consectetur, adipiorem20 lorem15 simos ipsa ex corrupti doloremque, quasi eligendi
+            accusantium?</p>
+    </div>
+</body>
+
+</html>

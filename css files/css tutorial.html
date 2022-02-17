@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>self reference</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Qahiri&display=swap" rel="stylesheet">
+    <style>
+        /* for setting width and height */
+        .widthandheight {
+            background-color: rgb(233, 8, 8);
+            color: blue;
+            width: 255px;
+            height: 455px;
+        }
+
+        /* for setting margin and padding. margin 17px will be set automatically for
+        top,bottom,left & right side margin.same is also for pading.we can also
+        set margin & padding for all sides individually.*/
+        .marginandpadding {
+            background-image: url('images.jpg');
+            background-size: cover;
+            margin: 17px;
+            padding: 15px;
+            border: 10px solid rgb(117, 48, 180);
+
+            margin-top: 13px;
+            margin-left: 9px;
+            padding-right: 10px;
+            padding-bottom: 15px;
+            /* Other values of margina and padding which is not given will be 17&15.
+            it can also be written in shorthand format.
+            4 is for top margin,2 is for right margin,8 is for buttom margin
+            and 6 is for left margin.It needs to be in this format.But you can skip some.*/
+            margin: 4px 2px 8px 6px;
+
+            /* 2 is fo top & bottom and 5 is for left & right. */
+            margin: 2px 5px;
+
+            /* 5 is for top and 8 is for left and right and 0 is for bottom. */
+            margin: 5px 8px 0px;
+            /* Same thing is for padding. */
+        }
+
+        .settingborders {
+            margin-top: 5px;
+
+            border-width: 2px;
+            border-style: dashed;
+            border-color: black;
+            /* or using shorthand we can wite.it neednot to be in this order */
+            border: 10px dashed black;
+        }
+
+        /* border radius property make the corner round in shape.*/
+        .border_radius {
+            margin-top: 5px;
+            border: 10px solid darkslategrey;
+            border-radius: 156px;
+            background-color: teal;
+        }
+
+        /* margin_collapse .*/
+        /* Below 30px margin is shared by both.  */
+        .box1 {
+            background-color: red;
+            border: 5px solid black;
+            margin: 30px;
+            padding: 20px;
+        }
+
+        .box2 {
+            background-color: darkslateblue;
+            border: 5px solid black;
+            margin: 30px;
+            padding: 20px;
+        }
+
+        /* If box1's margin is smaller than Box2's.5px is the overlapped margin.*/
+        .box1 {
+            background-color: red;
+            border: 5px solid black;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .box2 {
+            background-color: darkslateblue;
+            border: 5px solid black;
+            margin: 30px;
+            padding: 20px;
+        }
+
+        /* box sizing */
+        .boxsize1 {
+            background-color: tomato;
+            margin: 10px;
+            height: 500px;
+            width: 200px;
+            border: solid red 5px;
+        }
+
+        .boxsize2 {
+            background-color: green;
+            width: 100%;
+            border: solid black 6px;
+            margin: 5px;
+            /*As we can see that inner box is going out of outer box.So we will use
+            box sizing property to fix it.
+            Width 100% means element content area is exactly equal to width of
+            outer box.
+
+            In box-sizing we will pass the variable
+            border box. So border box means we say that width and height is of total
+            box not of only content box.By default when we pass width and height it is of 
+            content box only.Now if we set margin then it will be adjusted automatically
+            without changing height and width of total area.But don't pass margin too high
+            that it will be impossible to fit inside the box.*/
+            box-sizing: border-box;
+        }
+
+
+        /* FONTS AND DISPLAY */
+        /* DISPLAY PROPERTY */
+        /* Display property is used to determine whether an element is treated as inline or block
+        or both element.*/
+
+        /* display: inline 
+        by default div tag is an block element to change it to inline element we will use display property.After using display: inline we are not allowed to give width,height,top and bottom margin and padding.*/
+        .display {
+            width: 213px;
+            height: 500px;
+            background-color: gold;
+            display: inline;
+            margin-left: 29px;
+        }
+
+        .demonstrater1 {
+            margin-left: 15px;
+            background-color: indigo;
+        }
+
+        /* display: block
+        span element is behaving as an block element. */
+        .display3 {
+            background-image: url('images.jpg');
+            background-repeat: repeat-x;
+            color: maroon;
+            display: block;
+        }
+
+        .demonstrater2 {
+            color: orangered;
+        }
+
+        /*If we want to set width and height of an inline element.then we will use the property 
+        'display: inline-block'.Now display4 is an inline as well as block element.*/
+        .display4 {
+            width: 200px;
+            height: 500px;
+            margin: 5px;
+            background-color: royalblue;
+            display: inline-block;
+        }
+
+        .demonstrater4 {
+            background-color: slategrey;
+            color: yellowgreen;
+        }
+
+        /* display: none vs visibility: hidden */
+        /* display: none remove the element.*/
+        /* visibility:hidden just make the element invisible but its space is reserve.No one can
+        conquer its space. */
+        .display5 {
+            background-color: black;
+            color: white;
+            display: inline-block;
+            font-size: medium;
+
+            visibility: hidden;
+            /* display: none; */
+        }
+
+        .demonstrater5 {
+            background-color: violet;
+            color: brown;
+            display: inline-block;
+            font-size: 30px;
+
+        }
+
+        /* text-align: property.It set harizontal alignment of a text means move the text
+        left or right like we did with image.*/
+        .display6 {
+            display: inline-block;
+            height: 250px;
+            width: 550px;
+            background-color: bisque;
+            text-align: center;
+        }
+
+        /* text-decoration property is used to decorate the text with underline,line-through,dotted etc... */
+        .display7 {
+            border-style: double;
+            margin-top: 10px;
+            padding-top: 5px;
+            width: 70%;
+            height: 50px;
+            background-color: darkslategrey;
+
+            text-decoration: line-through;
+        }
+
+        /* text-transformation property */
+        /* It is used to convert uppercase,lowercase,capitaize,none etc... */
+        /* capitalize convet all first letter after a space to uppercase. */
+        .display8 {
+            border-style: double;
+            margin-top: 10px;
+            padding-top: 5px;
+            width: 70%;
+            height: 50px;
+            background-color: darkslategrey;
+            text-decoration: underline;
+
+            text-transform: capitalize;
+        }
+
+        /* line-height property.*/
+        /* It is like giving top padding inside content box. */
+        .display9 {
+            margin-top: 5px;
+            ;
+            border-style: double;
+            width: 70%;
+            height: 90px;
+            background-color: darkslategrey;
+            text-decoration: underline;
+            text-transform: capitalize;
+
+            line-height: 130.25px;
+        }
+
+        /* fonts */
+        /* fonts play a very important role in the look and feel of webpage. 
+        It contains properties like font-size,font-family.font-weight etc...
+        
+        font-family represent a small specific group of styles like below: .If
+        courier new will not work then courier & if that also not work monospace will work otherwise
+        browser will gie a default value.
+        
+        You can also use google fonts.go to web and search google fonts and copy the link or stylesheet
+        of that font and paste it before style tag.*/
+        .display10 {
+            margin-top: 5px;
+            ;
+            border-style: double;
+            width: 70%;
+            height: 100px;
+            background-color: darkslategrey;
+            text-decoration: underline;
+            text-transform: capitalize;
+            line-height: 43.25px;
+
+            font-size: 25px;
+            font-family: 'Courier New', Courier, monospace;
+            font-variant: small-caps;
+        }
+
+        /* generic family.*/
+        /* It represent a group or class that contains multiple group.eg-serif */
+        .display11 {
+            height: 50px;
+            background-color: chartreuse;
+            font-family: serif;
+        }
+
+        /* use of google fonts.copy and paste the link before style tag and the font-family inside
+        the pace where we apply CSS rule.*/
+        .display12 {
+            background-color: cornsilk;
+            font-size: xx-large;
+            height: 25vh;
+            font-family: 'Qahiri', sans-serif;
+        }
+
+        /* SIZE,POSITION & LIST */
+        /* SIZE */
+        /* there are more units for describing size other than pixel(px) like em,rem,cm,vh,vw,% etc*/
+        /* What's wrong with pixel ? */
+        /* As we know our website must be responsive means it should adjust itself or support all other the devices.
+        So 1 pixel differs in various devices accoding to width and height of screen.For a device with size 1920*1080 , 1px = 1unit out 1080/1920.So the CSS developers found the necessity
+        to add more values of measurement. */
+
+        /* 1. em - em means __ * my parent's size.For eg- 'font-size:3em' means 3 times of my parent's font-size.If parent's font-size is 15px,child's font-size is 45px(3em = 3*45). */
+        .size1 {
+            background-color: lightblue;
+            width: 554px;
+            height: 250px;
+            font-size: 14px;
+        }
+
+        .helper {
+            border: 3px double red;
+            background-color: lightgreen;
+            height: 128px;
+            font-size: 2em;
+        }
+
+        /* 2. rem - rem means _*size of HTML tag . we use rem when we want to resize the whole page at a time.*/
+        html {
+            font-size: 15px;
+        }
+
+        .size2 {
+            background-color: chocolate;
+            font-size: 2rem;
+        }
+
+        /* 3.vw/vh - vw stands for viewport width and vh stands for viewport height. width:10vw means if total width of screen is 100% then width is 10% of total screen's width. Same is for height.*/
+        .size3 {
+            background-color: khaki;
+            width: 50vw;
+            height: 10vh;
+        }
+
+        /* 4. % - unit relative to parent's element.eg- width:10%.If parent's width is 90px then then width of child is 9px or 10% of 90px. */
+        .size4 {
+            background-color: mediumpurple;
+            width: 850px;
+            height: 214px;
+        }
+
+        .helper2 {
+            margin-top: 20px;
+            background-color: midnightblue;
+            border: 3px solid black;
+            width: 50%;
+            height: 50%;
+        }
+
+        /* min-height,min-width,max-height,max-width.If we will set 'min-height: 50vh' means we can set our or increase our height upto 50vh,not more than that.if will set our height 100vh then it will not work.Same is for other properties
+        It is used to set range for height or width .
+         */
+        .size5 {
+            margin: 10px;
+            background-color: crimson;
+            max-height: 40vh;
+            max-width: 60vw;
+
+            height: 15vh;
+            width: 40vw;
+        }
+
+        /* POSITION property */
+        /* This property is used to manipulate or move an element by passing different values.It contains 5 values , static,relative,absolute,fixed & sticky. */
+
+        /* position: static . This is the dafault value.We cannot ue top,bottom,left,right & z-index,(These properties are used to move an element from one place to another by passibg position like right:45px means move 45px towards right etc..). */
+        .position1 {
+            background-color: chartreuse;
+            width: 50vw;
+            height: 50vh;
+            margin: auto;
+        }
+
+        .position1 p {
+            border: 2px double red;
+            width: 80%;
+            height: 20%;
+            margin: auto;
+        }
+
+        .position2 {
+            margin-top: 35px;
+            display: inline-block;
+            border: 2px solid red;
+            height: 20vh;
+            width: 20vw;
+        }
+
+        .mainbox {
+            display: inline-block;
+            text-align: center;
+            border-radius: 30px;
+            margin-top: 15px;
+            background-color: rgb(206, 103, 35);
+            height: 8vh;
+            width: 8vw;
+
+            /* position: relative .when we make position relative that means it can move from one place to other by using left,right etc property. And its original space will be reserved.It move accoding to it parent element. */
+
+            /* position: relative;
+            left: 7px;
+            bottom: 96px */
+
+
+            /* position: absolute .The element is removed from the flow & is relatively positioned to its first non-static ancestor. Means the element is removed from the page but it forcefully remains in the page.Other element will behave as if is not present.And its original space will not be reserved.
+            
+            Its will move relative to body tag even if it is static because he has no other choice as because it can't go beyond body tag.If we make class position1 non static then it will move relative to class position1.*/
+
+            /* position: absolute;
+            left: 408px */
+        }
+
+        .p-fixed-sticky {
+            background-color: yellow;
+            display: inline-block;
+            width: 100px;
+            height: 120px;
+            border: 3px solid black;
+
+            /* position: fixed.It is similar to absolute property but the element is position accoding to brower's window.It stick to the screen even if we scroll up or down.People use it mostly to make suscribe box or chat box etc... that will always appear on the screen.*/
+
+            position: fixed;
+            bottom: 369px;
+            right: 0px;
+
+            /* position: sticky . The element is positioned based on user's scroll position.Means it works like fixed but
+            its old position is reserved .Remember it will not work if your element is a child element .So in that case apply sticky property on parent element.*/
+
+            /* position: sticky;
+            top: 15px; */
+        }
+
+        /* z-index :5px . this property defines which layuer will stay above in case of overlapping.Element whose z-index value is more will remain in top in case of overlapping.Your position should not be static. */
+        .navbar li {
+            display: inline-block;
+        }
+
+        .navbar {
+            display: inline-block;
+            background-color: black;
+            color: white;
+            height: 50px;
+            width: 100%;
+
+            /* Both navbar and helper3 below have position sticky.but helper3 overlap navbar as its z-index value is more than navbar.By default navbar's z-index is auto.auto means it will fit inside it's parent element.Here to make navbar overlap helper3 we will use its z-index property.*/
+            position: sticky;
+            top: 8px;
+            z-index: 1;
+        }
+
+        .helper3 {
+            display: inline-block;
+            width: 30vw;
+            height: 700px;
+            border: 2px solid red;
+            position: sticky;
+        }
+
+        /* List style property. */
+        .liststyle {
+            /* list-style: square outside; */
+
+            /* Instead of giving square you can also give any image. */
+            list-style: inside url(images.jpg);
+
+            /* square is the value of list-style-type property & outside/inside is the value of list-style-position property and url is the value of list-style-image propety. */
+
+            /* ouside or inside value specify whether the boxes or images will be inside or outside. If we inspect the image or square in browser and hover on these then we will find that when list list-style-position: outside; a dotted vertical line comes after the square .But when value is inside the dotted vertical line appears before the image.*/
+        }
+
+        /* float property. */
+        /* This property throws an element towards extreme left or right side. */
+        /* .boxx1{
+            background-color: red;
+            height: 15vh;
+            width: 20vw;
+            border: solid; */
+
+        /* float:right; throws boxx1 to right side of boxx2 even if boxx1 & boxx2 are block elements. */
+        /* float:right;
+        } */
+        /* .boxx2{
+            background-color: green;
+            height: 15vh;
+            width: 20vw;
+            border: solid; */
+
+        /* After doing float:right in boxx2 it goes to its right side. */
+        /* float: right;
+        } */
+
+
+        /* clear property */
+        /* It is used to clear float.It specifies what element can float beside a given element. */
+        .boxx2 {
+            background-color: green;
+            height: 15vh;
+            width: 20vw;
+            border: solid;
+            float: right;
+            /* Here in boxx2 if we type clear:right boxx2 will come below boxx1. clear:right says that clear my right side,no element should float on my right side. */
+            clear: right;
+        }
+
+        .boxx1 {
+            background-color: red;
+            height: 15vh;
+            width: 20vw;
+            border: solid;
+            float: right;
+        }
+
+        /*  FLEXBOX  */
+        /* Float and clear property create a lot of complexity.So people demaned for a property that directly move elements or align horizontally or vertically or in centre. So for this purpose CSS developers added flexbox property.It is very useful in making layout.
+        So flexbox provides a betterway to layout,align and distribute spaces among items in a container.
+        First step to use flexbox is to initialize flexbox in a container or parent element by typing dispaly: flex;
+        After initializing flexbox our container will convert into a flexbox or flexcontainer and elements inside it were called as flex items.In flexcontainer we have a main axis and a cross axis.
+        Main axis is that invisible horizontal line on which all elements are aligned.
+        Cross axis is also like main axis but it can horizontal as well as vertical.
+        All these are some termilogy we all need not to remember.*/
+
+        /* In flexbox there are some properties which are to be applied on container and some other are applied on flex items.
+
+        1st we will read some properties which are to be applied on flex-container.*/
+
+
+        /* flex-direction property. */
+
+        /* This property defines in which direction items are to be aligned.By default its value is row.
+
+        If we pass the value row-revese then flex items will appear in row but will start from opposite direction.Starting from left side 1st box-1 will appear then box-2. 
+        Search in net for more possible values.*/
+
+        .flexbox1 {
+            background-color: khaki;
+
+            display: flex;
+            flex-direction: row-reverse;
+            /* flex-direction: column;
+            flex-direction: column-reverse; */
+        }
+
+        .box-1 {
+            background-color: rgba(28, 28, 196, 0.795);
+            width: 20vw;
+            height: 20vh;
+            border: solid;
+        }
+
+        .box-2 {
+            background-color: rgb(145, 255, 0);
+            width: 20vw;
+            height: 20vh;
+            border: solid;
+        }
+
+        /* flex-wrap property */
+        /* if we squeze the window of our browser the boxes will also contractor or squezed but if we don't want to contract the size of our boxes on contraction of size of brower window then we will use flex-wrap property.By default it's value is no wrap,but if we pass value flex-wrap: wrap; then boxes will not get sqeezed , they will be arrange vertically when we will sqeeze the window.Box-3 will be above and Box-5 will be at bottom.
+        
+        IF WE PASS THE VALUE flex-wrap: wrap-reverse then Box-5 will be at first and Box-3 will be at last because Box-3 will be wrapped 1st and comes down.
+        
+        There are more possible wrap search those in web or mdn reference*/
+        .flexbox2 {
+            margin-top: 10px;
+            height: 95vh;
+            background-color: yellowgreen;
+            display: flex;
+
+            flex-wrap: wrap;
+            /* flex-wrap: wrap-reverse; */
+        }
+
+        .box-3 {
+            background-color: rgba(28, 28, 196, 0.795);
+            width: 290px;
+            height: 150px;
+            border: solid;
+        }
+
+        .box-4 {
+            background-color: rgb(145, 255, 0);
+            width: 290px;
+            height: 150px;
+            border: solid;
+        }
+
+        .box-5 {
+            background-color: red;
+            width: 290px;
+            height: 150px;
+            border: solid;
+        }
+
+        /* justify-content property */
+        /* This property defines alignment along main axis or horizontally at top of container or parent element.
+        
+        By default its value is flex-start means boxes will align from the beginnng of container or parent element.If we pass the value centre then boxes will appear at centre.If we will pass the value flex-end then boxes will align at the extreme right corner of container flexbox3.*/
+        .flexbox3 {
+            margin-top: 10px;
+            min-height: 50vh;
+            background-color: rgb(50, 195, 205);
+            display: flex;
+
+            justify-content: center;
+            /* justify-content: flex-end; */
+        }
+
+        .box-6 {
+            background-color: rgba(28, 28, 196, 0.795);
+            width: 20vw;
+            height: 15vh;
+            border: solid;
+        }
+
+        .box-7 {
+            background-color: rgb(145, 255, 0);
+            width: 20vw;
+            height: 15vh;
+            border: solid;
+        }
+
+        .box-8 {
+            background-color: red;
+            width: 20vw;
+            height: 15vh;
+            border: solid;
+        }
+
+        /* /* align-items property */
+        /* This property is used to align items along cross axis or vertically.
+         */
+        .flexbox4 {
+            margin-top: 10px;
+            min-height: 50vh;
+            background-color: brown;
+            display: flex;
+
+            align-items: center;
+        }
+
+        .box-9 {
+            background-color: rgba(28, 28, 196, 0.795);
+            width: 20vw;
+            height: 15vh;
+            border: solid;
+        }
+
+        .box-10 {
+            background-color: rgb(145, 255, 0);
+            width: 20vw;
+            height: 15vh;
+            border: solid;
+        }
+
+        .box-11 {
+            background-color: red;
+            width: 20vw;
+            height: 15vh;
+            border: solid;
+        }
+
+        /* align-content */
+        /* Remove unwanted spaces when we wrap flex items.
+        Remember-Unwanted space occur only when the space available is much more than needed like here 70vh
+        and use px .If you will use relative lenghts like vh or vw it will 1st contract to minimum than it will wrap. */
+        .flexbox5 {
+            margin-top: 10px;
+            background-color: lightblue;
+            display: flex;
+            flex-wrap: wrap;
+
+            height: 70vh;
+            align-content: center;
+        }
+
+        .box-12 {
+            background-color: midnightblue;
+            width: 200px;
+            height: 200px;
+            border: solid;
+        }
+
+        .box-13 {
+            background-color: palevioletred;
+            width: 200px;
+            height: 200px;
+            border: solid;
+        }
+
+        .box-14 {
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            border: solid;
+        }
+
+        /* flex properties for flex-items or children elements. */
+
+        /* order */
+        /* This propety controls the order of element to be appear in flex-container.
+        
+        EG - suppose you have 3 boxes a,b & c appear in this orer only but if we want 1st box b should appear than c than a.we will use orer property and give the value of box b lowest comparative to others. By default their order is 0(all).So if you try to bring an item at 1st place then you have to change order of all others from 0 to some other. */
+        .flexbox6 {
+            margin-top: 10px;
+            background-color: lightslategray;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box-a {
+            width: 200px;
+            height: 200px;
+            border: solid;
+            order: 3;
+        }
+
+        .box-b {
+            width: 200px;
+            height: 200px;
+            border: solid;
+            order: 0;
+        }
+
+        .box-c {
+            width: 200px;
+            height: 200px;
+            border: solid;
+            order: 1;
+        }
+
+        /* align-self property */
+        /* Allows default alignment to be over-ridden for the individual flex-item.
+        
+        We have declared align-content as centre in container but we want only box-15 to appear at bottom so, we will use align-self property that will over-ride the orginal alignment declared in continer.*/
+        .flexbox7 {
+            background-color: dimgray;
+            margin-top: 10px;
+            display: flex;
+            height: 50vh;
+            align-content: center;
+        }
+
+        .box-15 {
+            width: 200px;
+            height: 200px;
+            border: solid;
+
+            align-self: flex-end;
+        }
+
+        .box-16 {
+            width: 200px;
+            height: 200px;
+            border: solid;
+        }
+
+        .box-17 {
+            width: 200px;
+            height: 200px;
+            border: solid;
+        }
+
+        /* flex-growth */
+        /* defines the ability for a flex-item to grow in size.growth direction(width or height) depend upon flex-direction*/
+        .flexbox8 {
+            margin-top: 10px;
+            background-color: lightblue;
+            display: flex;
+            height: 100vh;
+
+            flex-direction: row;
+        }
+
+        .box-18 {
+            background-color: midnightblue;
+            width: 200px;
+            height: 100px;
+            border: solid;
+        }
+
+        .box-19 {
+            background-color: palevioletred;
+            width: 200px;
+            height: 100px;
+            border: solid;
+            flex-shrink: 200px;
+        }
+
+        .box-20 {
+            background-color: red;
+            width: 200px;
+            height: 100px;
+            border: solid;
+        }
+
+        /* flex-shrink */
+        /* This is opposite of flex-grow,It specify how much a flex-item should shrink to djust inside a flex-container.It work only when flex-items are overflowing.*/
+
+
+
+
+        /* CSS GRID AND MEDIA QUERIES (IMPORTANT)*/
+        /* CSS grid is used to make beautiful layouts by making different row and columns.There are a lot of other ways to make layout but CSS grid make it easy. 
+        
+        To initilize CSS grid we use dsplay property "display: grid;",inside container or parent element. 
+        
+        After initializing all its child elements becomes grid-items automatically.*/
+
+        .css-grid-1 {
+            margin-top: 10px;
+            display: grid;
+            height: 200px;
+        }
+
+        .grid-box-1 {
+            background-color: lightsteelblue;
+            border: 2px solid black;
+        }
+
+        /* /* By default it made 1 column and 4 rows. To make more columns we will use grid-template-column property. */
+
+        /* properties to be applied on grid- container.*/
+
+        /* grid-template-column property. */
+
+        /*This property defines width of a column,
+        indirectly it also make columns. 
+        Auto means adjust automatically inside container. */
+        .css-grid-2 {
+            margin-top: 10px;
+            display: grid;
+            height: 200px;
+            grid-template-columns: auto auto;
+        }
+
+        .grid-box-2 {
+            background-color: lightsalmon;
+            border: 2px solid black;
+        }
+
+
+        /* grid-column-gap property */
+        /* Defines column gap between columns. */
+        .css-grid-3 {
+            margin-top: 10px;
+            display: grid;
+            height: 200px;
+            grid-template-columns: auto auto;
+
+            grid-column-gap: 10px;
+        }
+
+        .grid-box-3 {
+            background-color: rgb(202, 122, 255);
+            border: 2px solid black;
+        }
+
+        /* grid-rows-gap property */
+        /* Defines row gap between rows. */
+        .css-grid-4 {
+            margin-top: 20px;
+            display: grid;
+            height: 200px;
+            grid-template-columns: auto auto;
+
+            grid-row-gap: 30px;
+        }
+
+        .grid-box-4 {
+            background-color: rgb(59, 68, 57);
+            border: 2px solid black;
+        }
+
+        /* grid-gap property */
+        /* This is short hand property of grid-row and column-gap property. */
+        .css-grid-5 {
+            margin-top: 20px;
+            display: grid;
+            height: 200px;
+            grid-template-columns: auto auto;
+            grid-gap: 30px 5px;
+        }
+
+        .grid-box-5 {
+            background-color: rgb(65, 143, 48);
+            border: 2px solid black;
+        }
+
+        /* grid-template-row */
+        /* This property is used to define the height of row. */
+        .css-grid-6 {
+            margin-top: 20px;
+            display: grid;
+            height: 100px;
+            grid-template-columns: auto auto;
+            grid-gap: 30px 5px;
+
+            grid-template-rows: 100px 50px;
+            /* 100px is for row1 & 50px is for row2. */
+        }
+
+        .grid-box-6 {
+            background-color: rgb(127, 48, 143);
+            border: 2px solid black;
+        }
+
+        /* Properties to be applied on grid-items or children. */
+
+        /* grid-column property */
+        /* Define how many items's place a column will span or occupy. */
+        .css-grid-7 {
+            margin-top: 20px;
+            display: grid;
+            height: 200px;
+            grid-template-columns: auto auto;
+        }
+
+        .grid-box-7 {
+            background-color: rgb(143, 118, 48);
+            border: 2px solid black;
+
+            grid-column: 1/3;
+
+            /* we can also be pass as below.span3 means span or occupy 3 columns.*/
+            /* grid-column: 1/span3; */
+        }
+
+        .grid-box-8 {
+            background-color: rgb(143, 118, 48);
+            border: 2px solid black;
+        }
+
+        /* grid-row property */
+        /* It defnes how many rows an item will span or cover */
+        .css-grid-9 {
+            margin-top: 20px;
+            display: grid;
+            height: 200px;
+            grid-template-columns: auto auto;
+        }
+
+        .grid-box-9 {
+            background-color: rgb(12, 63, 29);
+            border: 2px solid black;
+
+            grid-row: 1/3;
+
+            /* we can also be pass as below.span3 means span or occupy 3 rows.*/
+            /* grid-row: 1/span3; */
+        }
+
+        .grid-box-10 {
+            background-color: rgb(51, 143, 48);
+            border: 2px solid black;
+        }
+
+        /* Difference between 1/3 and 1/span3. */
+
+        /* CSS MEDIA QUERIES */
+        /* Basically it is a command in your website that,what should we do if our website reach to a particular screen size after resizinf screen.It helps in creating responsive websites. */
+
+        .CSS-media-query-1 {
+            background-color: darkslateblue;
+            height: 20vh;
+        }
+
+        @media screen and (max-width:800px) {
+            .CSS-media-query-1 {
+                background-color: goldenrod;
+            }
+        }
+
+        /* when size of window is less than 800px the background-color changes to goldenrod color. */
+
+
+        /* Transformation,Tansaction and Animation */
+
+        /* Transform property */
+
+        /* Transform propety is used to rotate,move,skew or scale elemants.They are used to create a 3-D effect. */
+
+        /* We can pass a lot of values.Here translate() moved the element 54px foreward in x-axis & 34px down in y-axis. we can also use translateX() and  translateY() individually.*/
+
+        .change1 {
+            background-color: lightseagreen;
+            height: 30ch;
+        }
+
+        .change1 div {
+            border: 5px solid rgb(179, 12, 12);
+            background-color: black;
+            color: white;
+            transform: translate(54px, 34px);
+        }
+
+        /* Transform-origin property */
+
+        /* Allows to change the position of transformed element. 
+        For eg - You want to rotate a paper.You can rotate it by holding from center or corner or from anywhere that point of holding is called as transform-origin.
+        
+        By it we can give 2-D effect by changing X & Y axis or 3-D effect by changing Z axis also. */
+
+        /* 2-D transform method */
+        /*  translate()
+            scaleX() 
+            skew()
+            rotate()
+            scaleY()
+            matrix() */
+
+        /* rotate() . This method is used to rotate an element.By default it rotate from origin as transform-origin is center.
+        but by changing transform-origin you can rotate it from anywhere. 
+        
+        you can also write rotate(0.25turn)*/
+        .rotate1 {
+            margin-top: 10px;
+            background-color: lightgreen;
+            height: 30vh;
+        }
+
+        .rotate1 div {
+            border: 5px solid rgb(179, 12, 12);
+            width: 40vw;
+            background-color: black;
+            color: white;
+
+            transform-origin: 0;
+            transform: translate(162px, -162px) rotate(45deg);
+        }
+
+        /* scaleX() scaleY()
+        scaleX() - make wider in x direction i.e;increase the width in left as well as in right direction .
+        scaleY() - make wider in y direction i.e;increase the height in left as well as in right direction .
+        scale() - shorthand for scaleX() & scaleY()*/
+        .scale {
+            border: 2px solid red;
+            /* transform: scaleX(3) scaleY(1) ; */
+            /* transform: scale(3,2); */
+        }
+
+        /* skew() - skew means to change direction */
+        #box {
+            border: 2px solid red;
+            background-color: rgb(112, 62, 62);
+            height: 50vh;
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .skew1 {
+            transform: skewX(15deg);
+
+            /* means top part will bent in x-axis by 4deg towards negative direction and bottom part will also bent in x-axis towards positive directon.Top and bottom is seperated from centre as transform origin is center by default.
+             */
+        }
+
+        .skew2 {
+            transform: skewY(15deg);
+
+            /* skewY(6deg) means right side in Y-axis from center will bend towards positive directon and left side in Y-axis from center will bend towards negative direction.
+             */
+        }
+
+        /* OR both can be set at a time in one element transform:skewX(4deg) skewY(6deg);
+        Or skew() is short hand of both skew X & Y. */
+
+        /* matrix() - It acts like a short-hand for all above properties but it is not actually a short-hand.It take 6 parameter that contain all mathemetical values.Actually it is shorthand for matrix3d()*/
+
+        /* #box2{
+            margin-top: 10px;
+            border: 2px solid red;
+            background-color: rgb(61, 55, 116);
+            height: 50vh;
+        } */
+        /* .matrix{
+            transform: matrix(4px,0,3,4,5,0);
+        } */
+
+
+
+        /* CSS 3-D Transform methods */
+        /* rotateX(),rotateY(),rotateZ().rotate() is not short-hand of rotate X OR Y.*/
+        .transformation3-D {
+            background-color: forestgreen;
+            height: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .transformation3-D div {
+            background-color: gray;
+            height: 15vh;
+            width: 20vw;
+            border: 2px solid;
+            transform: rotateZ(15deg);
+        }
+
+        /* CSS TRANSACTION & ANIMATIONS */
+        /* CSS Transaction */
+        /* help to make css animations.used to change property value smoothly over a duration or after a fixed interval/ */
+
+        /* The transaction properties */
+
+        /* 1.transcation-property - defines which transcation to be added.
+        2. transcation-duration - Time for which you want trnscation to apply.
+        3.transcation-timming-function - How you want property to transit.
+        4- transaction-delay - Specify the delay for transaction. */
+
+        .animation:hover {
+            width: 156px;
+        }
+
+        .animation {
+            width: 400px;
+            /* transition-property: width;
+            transition-duration: 2s;
+            transition-timing-function: ease-in;
+            transition-delay: 2s; */
+
+            transition: width 2s ease-in 2s;
+        }
+
+        /* transition multiple property */
+        .multiple-animation:hover {
+            height: 150px;
+            width: 150px;
+        }
+
+        .multiple-animation {
+            height: 650px;
+            width: 650px;
+            transition: width 2s ease-in 2s;
+        }
+
+        /* CSS Animations */
+        /* CSS Animations properties are used to animate CSS properties with more control.We can use 'keyframes' rules to change the animation from a given style to a new style.
+        
+        It reduces the work of transaction multiple properties.Suppose you have to add transaction in 50 propertie then it will make our code complex.So,CSS Animation reduces our work.
+        demon is the name of keyframe.By using this name we can use this keyframe rule made below in our needed class or container. */
+        @keyframes demon {
+            from {
+                width: 50vw;
+                height: 35vh;
+            }
+
+            to {
+                width: 81vw;
+                height: 50vh;
+            }
+        }
+
+        /* properties to add animation */
+        /* 1.animation-name = name of animation(given to keyframe) eg-demon
+        2.animation-duration = How long does animation need time to complete. eg - 5s or 10s
+        3.animation-timing-function = Determine speed of animation. eg - ease-in
+        4.animation-delay = Delay the start of animation. eg - 5s
+        5.animation-iteration-count = No of time animation should take place.
+        6.animation-direction = Specify the direction of animation, eg -normal or reverse etc.. 
+        
+        By declaring name of keyframes eg-demon,we can use that keyframe in our class or container.
+        
+        we can create a lot of unused keyframes to 
+        be used later on.*/
+        .animate {
+            width: 50vw;
+            height: 35vh;
+            background-color: red;
+
+            animation-name: demon;
+            animation-duration: 5s;
+            animation-delay: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+
+            /* animation: demon 5s 3s infinite normal; */
+        }
+
+        /* using percentage values to state the animation */
+        /* we can use % to indicate what should happen when a certain percent of animation is completed. */
+
+        @keyframes king {
+            0% {
+                width: 50vw;
+                background-color: yellow;
+            }
+
+            50% {
+                max-height: 55vh;
+                background-color: blue;
+            }
+
+            100% {
+                width: 90vw;
+                background-color: crimson;
+            }
+        }
+
+        .percentanime {
+            width: 20vw;
+            height: 35vh;
+            background-color: rgb(202, 88, 35);
+
+            animation-name: king;
+            animation-duration: 5s;
+            animation-delay: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- css box model -->
+    <div class="widthandheight">
+        <h1>This is for height and width setting property</h1>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil sequi quasi distinctio veniam numquam, minus
+        officia ad neque odio repellendus.
+    </div>
+    <div class="marginandpadding">
+        <h1>This is for margin and padding setting property</h1>
+        Lorem ipsum, dolor sit Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, quos.. Nikhil sequi
+        quasi distinctio veniam numquam, minus officia ad neque odio repellendus.
+    </div>
+    <div class="settingborders">
+        <h1>THIS IS FOR SETTING border</h1>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto sapiente obcaecati nesciunt optio
+        perferendis doloremque laudantium dolorum asperiores ut! Harum, molestias ab. Hic.
+    </div>
+    <div class="border_radius">
+        <h1>This is for boder radius property</h1>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel voluptates reprehenderit a debitis unde possimus
+        quis natus ipsum distinctio, sed accusantium hic id! Repellendus porro optio natus laudantium non pariatur?
+    </div>
+
+    <div class="margin_collapse">
+        <h1>MARGIN collapsing.</h1>
+        <p>when two margin of 2 different element ovelap,then the equivalent margin is greater of the two.Means if A's
+            margin is 5px and B's margin is 7px,then browser will consider B's margin.A has to take 2px from B or 2px of
+            A is inside B's margin.The browser always try to avoid extra spaces and newline.</p>
+    </div>
+
+    <div class="box1">
+        <h1>this property is for margin collapsing.</h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos
+        beatae obcaecati, inventore laudantium rem ullam sapiente dolores quia? Inventore ea deleniti voluptates aliquam
+        facere placeat. Mollitia minus quis maiores molestiae!
+    </div>
+    <div class="box2">
+        <h1>this property is for margin collapsing.</h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        Mollitia tempore, saepe repellendus temporibus deserunt sequi? Tenetur, quae quia. Vel repellendus soluta
+        assumenda minus explicabo ut velit alias, cupiditate earum expedita.
+    </div>
+
+    <div class="boxsizing">
+        <h1>This property is for Box sizing</h1>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod rerum deleniti libero autem est, debitis placeat
+        ad quasi possimus iste quis, dolores facere cupiditate natus reprehenderit nam. Tempore, ut soluta.
+    </div>
+
+    <div class="boxsize1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dolorum magnam debitis
+        voluptatem sed, omnis reprehenderit soluta error a enim.
+
+        <div class="boxsize2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam laboriosam aspernatur
+            labore, deleniti sapiente omnis.</div>
+    </div>
+
+    <!-- DISPLAY PROPERTIES -->
+
+    <div class="display">
+        <h1>This is for display property</h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis
+        eligendi quo Lorem ipsum dolor sit amet consectetur adipisicing elit.us?
+    </div>
+    <span class="demonstrater1">HELP TO DEMONSTRATE DISPLAY PROPERTY</span>
+
+    <span class="display3">To convert span tag into an block element.</span>
+    <div class="demonstrater2">Lorem ipsum dem nostrum reiciendis debitis possimus consectetur, non eum saepe! Dicta
+        nesciunt, magnam maxime quis quia soluta alias?</div>
+
+    <div class="display4">To convert div element to block as well as an inline element.
+        Means it will be a block element but we can also adjust height ,width etc..
+    </div>
+    <span class="demonstrater4">Lorem ipsum dem nostnon eum sam Lorem ipsum dolor sit amet. maxime quis quia soluta
+        alias?</span>
+
+
+    <h1 style="color: crimson;background-color: darkblue;">TO demonstarate visibility hidden and display none</h1>
+    <div class="display5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, excepturi?</div>
+    <div class="demonstrater5"> Lorem ipsum dolor sit amet consectetur.</div>
+
+    <span class="display6">HELLO THIS IS TEXT ALIGN PROPERTY</span>
+
+    <div class="display7">THIS IS TEXT text-decoration PROPERTY</div>
+
+    <div class="display8">This is for text transformation property</div>
+
+    <div class="display9">This is for line-height property property</div>
+
+    <div class="display10">This is for font properties like font-size,font-family</div>
+
+    <div class="display11">this is fo generic-family </div>
+
+    <div class="display12">This is to show use of google fonts</div>
+
+    <!-- size,position and list -->
+    <div class="size1">
+        <p>This is a to demontarate 'em' value of measurement</p>
+        <div class="helper">Lorem dolor sit amet, consectetur adipisicing elit. Repudiandae aut hicrum sequi repellendus
+            amet!</div>
+    </div>
+
+    <div class="size2">This is a to demontarate 'rem' value of measurement</div>
+
+    <div class="size3">This is to demonstarate 'vw or vh'.</div>
+
+    <div class="size4">This is to demonstarate '%'.
+        <div class="helper2">this is child box.</div>
+    </div>
+
+    <div class="size5">This is to demonstarate min-height,min-width,max-height,max-width.</div>
+
+    <!-- POSITION PROPERTY -->
+
+    <div class="position1">
+        <p>This is to demonstarate position properties and margin is auto.</p>
+
+        <div class="position2"></div>
+        <div class="mainbox">This is a box</div>
+        <div class="position2"></div>
+
+    </div>
+
+    <div class="position2"></div>
+    <div class="p-fixed-sticky">This is for position fixed or sticky.</div>
+    <div class="position2"></div>
+
+    <nav class="navbar">
+        <ul>
+            <li>home</li>
+            <li>about</li>
+            <li>contact</li>
+        </ul>
+    </nav>
+
+    <div class="helper3">This is also to help to demonstarate z-index property.
+        <p>Lorem ipsum dolor sit amet consectetur, adipiorem20 lorem15 simos ipsa ex corrupti doloremque, quasi eligendi
+            accusantium?</p>
+    </div>
+
+    <!-- list style property -->
+    <ul class="liststyle">
+        <li>home</li>
+        <li>about</li>
+        <li>contact</li>
+    </ul>
+
+    <!-- Float and clear property -->
+    <!-- <div class="boxx1">Box1</div>
+    <div class="boxx2">Box2</div> -->
+
+    <!-- FLEXBOX -->
+    <H1>CSS FLEXBOX</H1>
+    <div class="flexbox1">
+        <div class="box-1">Box-1</div>
+        <div class="box-2">Box-2</div>
+    </div>
+
+    <div class="flexbox2">
+        <div class="box-3">Box-3</div>
+        <div class="box-4">Box-4</div>
+        <div class="box-5">Box-5</div>
+    </div>
+
+    <div class="flexbox3">
+        <div class="box-6">Box-6</div>
+        <div class="box-7">Box-7</div>
+        <div class="box-8">Box-8</div>
+    </div>
+
+    <div class="flexbox4">
+        <div class="box-9">Box-9</div>
+        <div class="box-10">Box-10</div>
+        <div class="box-11">Box-11</div>
+    </div>
+
+    <div class="flexbox5">
+        <div class="box-12">Box-12</div>
+        <div class="box-13">Box-13</div>
+        <div class="box-14">Box-14</div>
+    </div>
+
+    <div class="flexbox6">
+        <div class="box-a">Box-A</div>
+        <div class="box-b">Box-B</div>
+        <div class="box-c">Box-C</div>
+    </div>
+
+    <div class="flexbox7">
+        <div class="box-15">Box-15</div>
+        <div class="box-16">Box-16</div>
+        <div class="box-17">Box-17</div>
+    </div>
+
+    <div class="flexbox8">
+        <div class="box-18">Box-18</div>
+        <div class="box-19">Box-19</div>
+        <div class="box-20">Box-20</div>
+    </div>
+
+    <!-- CSS GRID -->
+    <h1>CSS GRID</h1>
+
+    <div class="css-grid-1">
+        <div class="grid-box-1">box-1</div>
+        <div class="grid-box-1">box-2</div>
+        <div class="grid-box-1">box-3</div>
+        <div class="grid-box-1">box-4</div>
+    </div>
+
+    <!-- Grid-template-property -->
+    <div class="css-grid-2">
+        <div class="grid-box-2">box-1</div>
+        <div class="grid-box-2">box-2</div>
+        <div class="grid-box-2">box-3</div>
+        <div class="grid-box-2">box-4</div>
+    </div>
+
+    <!-- grid-column-gap property -->
+    <div class="css-grid-3">
+        <div class="grid-box-3">box-1</div>
+        <div class="grid-box-3">box-2</div>
+        <div class="grid-box-3">box-3</div>
+        <div class="grid-box-3">box-4</div>
+    </div>
+
+    <!-- grid-row-gap property -->
+    <div class="css-grid-4">
+        <div class="grid-box-4">box-1</div>
+        <div class="grid-box-4">box-2</div>
+        <div class="grid-box-4">box-3</div>
+        <div class="grid-box-4">box-4</div>
+    </div>
+
+    <!-- grip-gap property (shorthand property) -->
+    <div class="css-grid-5">
+        <div class="grid-box-5">box-1</div>
+        <div class="grid-box-5">box-2</div>
+        <div class="grid-box-5">box-3</div>
+        <div class="grid-box-5">box-4</div>
+    </div>
+
+    <!-- grid-template-row property -->
+    <div class="css-grid-6">
+        <div class="grid-box-6">box-1</div>
+        <div class="grid-box-6">box-2</div>
+        <div class="grid-box-6">box-3</div>
+        <div class="grid-box-6">box-4</div>
+    </div>
+
+    <!-- grid-column properties -->
+    <div class="css-grid-7">
+        <div class="grid-box-7">box-1</div>
+        <div class="grid-box-8">box-2</div>
+        <div class="grid-box-8">box-3</div>
+        <div class="grid-box-8">box-4</div>
+    </div>
+
+    <!-- grid-row properties -->
+    <div class="css-grid-9">
+        <div class="grid-box-9">box-1</div>
+        <div class="grid-box-10">box-2</div>
+        <div class="grid-box-10">box-3</div>
+        <div class="grid-box-10">box-4</div>
+    </div>
+
+    <div class="CSS-media-query-1">
+        Lorem ipsum dolor sit amet consectetur adipisbus, consectetur blanditiis vitae numquam dignissimos. Repellendus,
+        libero?
+    </div>
+
+    <h1>CSS transformation property</h1>
+
+    <div class="change1">
+        <div>Lorem ipsum dolor sit amet consectetur ao eius, explicabo sed sunt perspiciatis natus odit nam officia ex
+            iste impedit. Officnemo consequuntur! Sed quia itaque soluta deleniti, hic voluptatum debitis cum
+            temporibus, cumque reiciendis harum.</div>
+    </div>
+
+    <div class="rotate1">
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae est nihil pcitationem, sunt! Magni,
+            corrupti cupiditate voluptates voluptatibus modi earum in distinctio fuga quo laborum?</div>
+    </div>
+
+    <img src="images.jpg" alt="error" class="scale">
+
+    <div id="box">
+        <img src="image2.jpg" alt="none" class="skew1" height="155px">
+        <img src="image2.jpg" alt="none" class="skew2" height="155px">
+    </div>
+
+    not working
+    <div id="box2">
+        <img src="image2.jpg" alt="none" class="matrix" height="155px">
+    </div>
+
+    <div class="transformation3-D">
+        <div>Box-1</div>
+    </div>
+
+    <h1>CSS Transaction</h1>
+    <img src="image2.jpg" alt="error" class="animation">
+
+    <img src="images.jpg" alt="none" class="multiple-animation">
+
+    <div class="animate"></div>
+
+    <div class="percentanime">To demontarate percentage used in animation.</div>
+</body>
+
+</html>
