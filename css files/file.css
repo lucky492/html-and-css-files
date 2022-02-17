@@ -1,0 +1,13 @@
+/*By this code we make a rule that all h1 or main heading
+will be written in blue color and its background will be red in color*/
+h1 {
+    background: red;
+    color: blue;
+}
+
+ /*By this code we make a rule that all p will be written in blue color
+ and its background will be violet in color*/
+p {
+    color:blue;
+    background: violet;
+}

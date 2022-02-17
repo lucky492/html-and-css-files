@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list,table & form</title>
+</head>
+
+<body>
+    <!--  ul or ol tag is used to display a list. ul stands for unordered list,
+    ol stands for ordered list.These are used to display content in form of a list.
+    ul and ol have a type attribute(optional).but it is recommended to do styling
+    using css,bcz we may have given type as square in html but in css if we give
+    type as circle then it will create problem -->
+    <ul type=square>
+        <h1>unordered list</h1>
+        <li>home</li>
+        <li>about</li>
+        <li>contact</li>
+        <li>others</li>
+    </ul>
+    <ol>
+        <h1>ordered list</h1>
+        <li>home</li>
+        <li>about</li>
+        <li>contact</li>
+        <li>others</li>
+    </ol>
+
+    <!-- table tab is used to display data in a tabular form.
+    div tab is optional to use,it help while styling using css.
+    tr - table row
+    th - table header ,it has an colspan attribute.
+         Sometimes we want 2 column under one heading
+         for that purpose we use colspan attribue.
+         if we give colspan value as 2 that means under one heading
+         there will be two columns.          
+    td - table data-->
+    <div>
+        <table>
+            <h1>player details </h1>
+            <tr>
+                <th>player name</th>
+                <th>serial no</th>
+                <th>score</th>
+                <th colspan="2">game&hobby</th>
+            </tr>
+
+            <tr>
+                <td>virat kohli</td>
+                <td>9</td>
+                <td>126</td>
+                <td>cricket,footaball</td>
+            </tr>
+
+            <tr>
+                <td>ronaldo</td>
+                <td>11</td>
+                <td>2</td>
+                <td>footaball,tennis</td>
+            </tr>
+
+            <tr>
+                <td>michael jordan</td>
+                <td>29</td>
+                <td>5</td>
+                <td>basketball,table tennis</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!-- form tab is used to collect input from user.Eg-before creating an 
+    account in google we need to fill up a form asking about some informattion.
+    so there are different elements for different type user input,
+    
+    input elements - can be a text,checkbox,button,radio,submit etc...
+                    we also have a 'file' type.-->
+
+    <!-- action attribute is used as a backend.The data inside form tab goes to
+            form.php file and now it will be its responsibility to handle it.
+            placeholder attribute helps user to know what to do inside text box. -->
+    <div>
+        <form action="form.php">
+            <input type="text" placeholder="Enter here">
+        </form>
+    </div>
+    <hr>
+    <!-- type radio  
+    it create a select button.it is called as radio input because in ancient radio
+    if we press one button then other button will be diselected automatocally.
+
+    here we have used label tag for better user experience.It is optional.
+                used label tag          vs              not used label tag
+    in sectionA&B button if you click       in sectionC button if you click    
+    on the text then button will be         on the text then button will not be
+    selected.so it give better user         selected.so it doesnot give better user
+    experience.                             experience
+
+
+    label tag contain 'for' argument which takes an unique id.It is like your rollno.
+    id shoulnot be used in more than 1 place.practically on label tag can contain multiple
+    radio tags but it not recommended. creating seperate id for all radio tag is helpful
+    while styling using in CSS. label tag contains 'for' argument which takes an unique ID as input.
+    it states that label tag's benefit can obtained bu those input elements having same ID as in
+    label tag.eg section c button can't use label tag as its id is not same as id in label tag.
+
+    'name' must be same of all radio button.When name of all 3 buttons will be same then at a time
+    only one button caqn be selected.
+
+    value attribue is the name of radio button i.e,x.SECTION A,B OR C IS NOT THE NAME OF RADIO BUTTON,
+    IT IS ONLY A TEXT TO BE WRITTEN BY THE SIDE OF RADIO BUTTON.
+    -->
+    <div>
+        <form action="form.php">
+            <input type="text" placeholder="enter here">
+
+            <label for="sectionida">
+                <input type="radio" value="x" name="section" id="sectionida">SECTION A
+            </label>
+
+            <label for="sectionidb">
+                <input type="radio" value="y" name="section" id="sectionidb">SECTION B
+                <input type="radio" value="z" name="section" id="xyz">SECTION C
+            </label>
+
+            <input type="radio" value="z" name="section" id="sectionida">SECTION D
+        </form>
+    </div>
+
+    <!-- textarea tag-->
+    <div>
+        <form action="form.php">
+            <textarea name="Description" id="explain" cols="30" rows="10" placeholder="descripe here"></textarea>
+        </form>
+    </div>
+
+    <!-- checkbox tag -->
+    <!-- it is not like radio tag at a time both checkbox can be selected even if name is same.
+    class attribute is helpful in css, at a time we can change background of all checkbox
+    belonging to class 'red'.-->
+    <div>
+        <form action="form.php">
+            <label for="food canteen">
+                <input type="checkbox" name="want to eat food" id='food canteen' class="red">want food A
+            </label>
+        </form>
+    </div>
+
+    <div>
+        <form action="form.php">
+            <label for="want food canteen">
+                <input type="checkbox" name="want to eat food" id='want food canteen' class="red">want food B
+            </label>
+        </form>
+    </div>
+
+
+    <!-- select element :- used to give options to user to select his/her choice -->
+    <div>
+        <form action="form.php">
+            <select name="cars" id="cars">
+                <option value="none">select your car</option>
+                <option value="audi8">audi8</option>
+                <option value="maruti">maruti</option>
+                <option value="tesla">tesla</option>
+                <option value="nano">nano</option>
+                <option value="auto">auto</option>
+                <option value="bicycle">cycle</option>
+            </select>
+        </form>
+    </div>
+
+    <!-- EMBEDDING VIDEO IN YOUR WEBPAGE -->
+    <video src="_ Jeete Hai Chal _ Descendants of the Sun _(720P_HD).mp4" controls loop width="532"></video>
+
+    <!-- we can also embed you tube videos.
+    you tube has used iframe tag  to play video.-->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/UzHHNVtiRMc" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe> <br>
+    <iframe src="https://www.bing.com/" width="1560" title="bling search engine" frameborder="0"></iframe>
+
+</body>
+
+</html>

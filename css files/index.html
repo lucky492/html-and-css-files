@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>our first css file</title>
+
+    <!-- link tab is used to add CSS to html. -->
+    <!-- <link rel="stylesheet" href="style.css">     -->
+
+    <!-- style tag in html is used to add css to html
+    <style>
+        /*By this code we make a rule that all h1 or main heading
+        will be written in blue color and its background will be red in color*/
+        h1 {
+            background: red;
+            color: blue;
+        }
+
+        /*By this code we make a rule that all p will be written in blue color
+        and its background will be violet in color*/
+        p {
+            color:blue;
+            background: violet;
+        }
+    </style> -->
+
+    <style>
+        div {
+            background-color: rgb(117, 120, 122);
+        }
+
+        h1 {
+            color: violet;
+        }
+
+        /* dot operator is used to repreent class.Here we have made a rule that any
+        element which belong to class red have it background pink in color and text color
+        will be red. */
+
+        .red {
+            background-color: pink;
+            color: red;
+        }
+        /* all paragraph in red class */
+        p.red{
+            color: salmon;
+        }
+
+        /* '#' operator is used to target or represent a id.But mostly classes are used. 
+        Here we have made a rule that element having id=sec562 have its background rgb
+        color and text color will be black.*/
+        #sec562 {
+            background-color: rgb(18, 124, 185);
+            color: black;
+        }
+
+        /* star(*) is a universal selector which represent or target all.We have made
+        a rule that all margin and padding in web will be 0.Padding refers to the space around
+        a text.*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* background image property is used to set image as background. */
+        .container {
+            background-color: darkgreen;
+            background-image: url("image2.jpg");
+            color: red;
+            /* But the image is repeating so to stop repeating or repeat in a specefic way we use
+            background size property.*/
+            background-repeat: no-repeat;
+            /* There are a lot of other values which you can give like repeat-x or y etc..
+            Check MDN reference or on web. */
+            height: 334px;
+            width: 334px;
+            border: solid rgb(21, 153, 54);
+
+            /* Background-size property is used to adjust image size. 
+            We can give values like contain,cover,auto or width value or width & height value*/
+
+            /* contain value display the full image even if it don't cover full area. */
+            background-size: 263px;
+
+            /* cover value occupy the whole specified area but it maynot show the full picture. */
+            /* background-size: cover; */
+            /* background-size: 63px; */
+
+            /* background position property */
+            background-position: bottom center;
+
+            /* background-attachment property.Don't use background attachment
+            and position property at a time. */
+            /* background-attachment: fixed; */
+
+        }
+
+        /* we can also give all above variable at a time using background short-hand property
+        It is a single property to set multiple background properties */
+        .x {
+            background:  rgb(46, 110, 110)  url('image2.jpg') no-repeat center;
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <h1>Our firt css website</h1>
+    <div class="red">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed in porro quasi omnis modi perspiciatis. Ea
+        repudiandae reprehenderit, placeat repellendus, natus debitis earum quas doloremque sint vitae et quia facere
+        eligendi! Saepe, cum in?
+    </div>
+    <hr>
+
+    <div class="x">
+        <h1>Hello this is for shorthand property</h1> Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis voluptatem voluptas rem
+        optio esse unde molestias, quis distinctio alias doloremque similique expedita recusandae. Obcaecati
+        perspiciatis deserunt molestiae, quam eaque aliquam consequuntur ea fugit quaerat vitae rerum autem labore
+        assumenda pariatur natus dicta fuga sapiente. Magni possimus soluta porro numquam reprehenderit quos.
+    </div>
+
+    <div class="red blue purple section">
+        this belong to multiple classes at a time.
+    </div>
+    <hr>
+
+    <span id="sec562">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius beatae fuga, consequuntur atque voluptatibus sed
+        eum, nemo fugiat vero ex minus.
+    </span>
+    <hr>
+
+    <div>this doesnot belong to any class or id.</div>
+
+    <div class="container">
+        <h1> Background image property</h1>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo perspiciatis dicta ratione cupiditate cum
+        doloremque, esse a quam animi sequi debitis repellendus commodi veniam iusto iam? Quibusdam ipsa veniam
+        voluptatem est?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi culpa, natus amet, possimus
+        voluptate unde qui tempora maiores ea perferendis quae doloremque explicabo libero dicta.
+    </div>
+
+
+
+</body>
+
+</html>
